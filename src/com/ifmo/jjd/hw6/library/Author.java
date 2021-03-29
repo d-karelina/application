@@ -4,6 +4,10 @@ public class Author {
     private String firstName ;
     private String lastName ;
 
+    public Author(String firstName, String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
 
     public void setFirstName(String firstName) {
         if (firstName == null) throw new IllegalArgumentException("имя = null") ;

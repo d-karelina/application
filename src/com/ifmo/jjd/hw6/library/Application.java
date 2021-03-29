@@ -12,14 +12,14 @@ package com.ifmo.jjd.hw6.library;
 public class Application {
     public static void main(String[] args) {
         Storage storage1 = new Storage() ;
+        Author author1 = new Author("Эрих Мария", "Ремарк") ;
+        Author author2 = new Author("Александр", "");
 
+        Book book1 = new Book("три товарища", 400, 1963, new Author[]{author1, author2});
+        book1.setBookTitle("Три товарища");
+        book1.setAmountOfPages(400);
+        book1.setYearOfPublication(1963);
 
-        Book book1 = new Book();
-        book1.setBookTitle();
-        book1.setAmountOfPages();
-        book1.setYearOfPublication();
-        int numberOfAuthors = book1.setNumberOfAuthors();
-        book1.setAuthors(numberOfAuthors);
 
         System.out.println(book1);
 

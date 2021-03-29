@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Storage {
     private UUID uuid ;
-    private Book [] books = new Book[20];
+    private Book[] books = new Book[20];
 
     public Storage() {
         uuid = UUID.randomUUID();
