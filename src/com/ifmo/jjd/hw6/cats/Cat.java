@@ -14,7 +14,7 @@ public class Cat {
     private String catsColor ;
     private int catsSpeed ;
     private int catsWeight ;
-    private Mouse [] catsMice = new Mouse[100];
+    private Mouse[] catsMice = new Mouse[100];
 
     public Mouse[] getCatsMice() {
         return catsMice;
@@ -42,7 +42,6 @@ public class Cat {
         }
 
         System.out.println("кот " + this.catsName + ": 'Слишком много мышей, чтобы их запоминать...'");
-        return;
     }
 
     public void catchMouse (Mouse mouse){
@@ -51,10 +50,10 @@ public class Cat {
             this.addMouseToMemory(mouse);
             return;
         }
-        else {
-            System.out.println("кот " + this.catsName + ": 'мышь бегает быстрее...'");
-            return;
-        }
+
+        System.out.println("кот " + this.catsName + ": 'мышь бегает быстрее...'");
+
+
     }
 
     public void fightCat (Cat catEnemy) {
