@@ -1,4 +1,4 @@
-package hwAwway;
+package hwArray;
 
 import java.util.Arrays;
 
@@ -7,7 +7,7 @@ import java.util.Arrays;
          минимальное и среднее значение*/
 public class ArrayMax {
     public static void main(String[] args) {
-        int array[] = new int[10];
+        int[] array = new int[10];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int)(Math.random()*100);
             }

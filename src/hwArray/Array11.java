@@ -1,4 +1,4 @@
-package hwAwway;
+package hwArray;
 
 import java.util.Arrays;
 

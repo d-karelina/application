@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class StringCompare {
     public static void main(String[] args) {
         String subWord = "дом";
-        String word = new String();
+        String word = null;
 
         Scanner scan = new Scanner(System.in) ;
 

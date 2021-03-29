@@ -1,4 +1,4 @@
-package hwAwway;
+package hwArray;
 //Создайте массив из чётных чисел [2;20] и выведите элементы массива
 //        в консоль в обратном порядке (20 18 16 ... 4 2)
 public class ArrayCountable {
