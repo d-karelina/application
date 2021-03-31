@@ -1,7 +1,7 @@
 package com.ifmo.jjd.hw7.school;
 
 public class School {
-    private String schoolTitle ;
+    final private String schoolTitle ;
     private HeadMaster director ;
     private Teacher[] teachers ;
     private Student[] students ;

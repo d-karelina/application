@@ -13,10 +13,10 @@ public class Teacher extends Human implements CanTeach {
         return subjectToTeach;
     }
 
-    public void teach(Student... students) {
-        for (int i = 0; i < students.length; i++) {
-            students[i].study();
-        }
+    @Override
+    public void teach(Student students) {
+            students.study();
+
     }
 
 
