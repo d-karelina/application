@@ -29,11 +29,23 @@ public class Settings {
     public final static int CHICKEN_RESOURCES = 10;
     public final static int CHICKEN_HEALTH = 5;
 
-    //Настойки для кролик
+    //Настойки для кролика
     public final static int RABBIT_WEIGHT_MIN = 4 ;
     public final static int RABBIT_WEIGHT_MAX = 5 ;
     public final static int RABBIT_SPEED_MIN = 30;
     public final static int RABBIT_SPEED_MAX = 65;
     public final static int RABBITS_RESOURCES = 0;
     public final static int RABBITS_HEALTH = 10;
+
+    //настройки для волка
+    public final static int WOLFS_WEIGHT = 43 ;
+    public final static int WOLFS_SPEED = 57;
+
+    //настройки для лисы
+    public final static int FOXES_WEIGHT = 10 ;
+    public final static int FOXES_SPEED = 45;
+
+    //настройки для медведя
+    public final static int BEARS_WEIGHT = 400 ;
+    public final static int BEARS_SPEED = 45;
 }

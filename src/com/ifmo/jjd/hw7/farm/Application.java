@@ -26,6 +26,8 @@ public class Application {
 
         Farm farm1 = new Farm();
 
+        //System.out.println(farm1);
+
         farm1.dayOnFarm();
 
     }

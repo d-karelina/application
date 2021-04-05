@@ -1,6 +1,7 @@
 package com.ifmo.jjd.hw7.farm;
 
 import static com.ifmo.jjd.hw7.farm.Settings.*;
+import static com.ifmo.jjd.hw7.farm.utils.Randoms.*;
 
 public class Farmer {
     //переменная для ресурсов фермера. Присваивается стартовое значение.
@@ -28,6 +29,17 @@ public class Farmer {
     //метод кормления животных
     public void feedDomesticAnimal (DomesticAnimal animal) {
         animal.eatFeed();
+    }
+
+    //мотод прогона диких животных
+    public boolean banishWildAnimal (WildAnimal wildAnimal){
+        int chance = getRandomInt(0,1);
+        if (chance == 1) {
+            wildAnimal.scareOfFarmerScore ++ ;
+            System.out.println("фермер прогнал " + wildAnimal.name);
+            return true ;
+        }
+        else return false ;
     }
 
     @Override

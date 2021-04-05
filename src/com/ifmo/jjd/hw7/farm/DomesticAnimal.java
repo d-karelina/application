@@ -26,13 +26,6 @@ public abstract class DomesticAnimal extends Animals implements HasWeight, HasSp
 
     protected DomesticAnimal () {}
 
-/*    protected DomesticAnimal(String type, int weight, int speed, boolean eatable, int resourcesAmount) {
-        super(weight, speed);
-        this.type = type ;
-        this.resourcesAmount=resourcesAmount ;
-        this.eatable = eatable ;
-    }*/
-
     // фабричный метод, который создает домашнее животное, принимая на вход тип животного.
     // Если тип указан неверно - создается рандомное домашнее животное.
     // Значение полей домашнего животного устанавливаются в зависимости от предопределенных параметров.

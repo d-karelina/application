@@ -16,7 +16,7 @@ public class Rabbit extends DomesticAnimal implements HasSpeed, HasWeight, HasHe
     // метод, который устанавливает случайное значение поля "скорость", в интервале от минимума до максимума
     @Override
     public int setSpeed() {
-        return (this.weight = getRandomInt(RABBIT_SPEED_MIN, RABBIT_SPEED_MAX));
+        return (this.speed = getRandomInt(RABBIT_SPEED_MIN, RABBIT_SPEED_MAX));
     }
 
     // метод, который устанавливает случайное значение поля "вес", в интервале от минимума до максимума
