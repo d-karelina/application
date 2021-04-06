@@ -1,13 +1,13 @@
 package com.ifmo.jjd.exam.fitness;
 
 public class UserInfo {
-    private String firstName ;
-    private String lastName ;
+    protected String firstName ;
+    protected String lastName ;
     private int yearOfBirth ;
 
     public UserInfo(String firstName, String lastName, int yearOfBirth) {
         if (firstName == null || lastName == null || yearOfBirth > 2015 || yearOfBirth < 1931) {
-            throw new IllegalArgumentException("некорректные данные владельца абонимента") ;
+            throw new IllegalArgumentException("некорректные данные владельца абонемента") ;
         }
         this.firstName = firstName;
         this.lastName = lastName;

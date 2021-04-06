@@ -7,5 +7,5 @@ public class Settings {
 
     public static LocalTime TIME_VALID_TILL = LocalTime.parse(("15:30:00"));
     public static LocalTime TIME_OPEN = LocalTime.parse(("08:00:00"));
-    public static LocalTime TIME_CLOSE = LocalTime.parse(("22:00:00"));
+    public static LocalTime TIME_CLOSE = LocalTime.parse(("21:30:00"));
 }

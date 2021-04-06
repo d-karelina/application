@@ -6,24 +6,29 @@ public class Application {
         SeasonTicket ticket1 = new SeasonTicket(SeasonTicket.Type.ПОЛНЫЙ, user1);
 
         UserInfo user2 = new UserInfo("Сергей", "Петров", 2000);
-        SeasonTicket ticket2 = new SeasonTicket(SeasonTicket.Type.ДНЕВНОЙ, user2);
+        SeasonTicket ticket2 = new SeasonTicket(SeasonTicket.Type.ПОЛНЫЙ, user2);
+
+        UserInfo user3 = new UserInfo("Сергей", "Иванов", 2004);
+        SeasonTicket ticket3 = new SeasonTicket(SeasonTicket.Type.ПОЛНЫЙ, user3);
+
+        UserInfo user4 = new UserInfo("Марина", "Иванова", 1994);
+        SeasonTicket ticket4 = new SeasonTicket(SeasonTicket.Type.ПОЛНЫЙ, user4);
+
+
 
         FitnessClub fitnessClub = new FitnessClub();
 
 
-        fitnessClub.visiting(fitnessClub.zones[0], ticket1);
+        fitnessClub.visiting(fitnessClub.zones[2], ticket1);
+        fitnessClub.visiting(fitnessClub.zones[2], ticket2);
+        fitnessClub.visiting(fitnessClub.zones[2], ticket3);
+        fitnessClub.visiting(fitnessClub.zones[2], ticket4);
+
+        fitnessClub.printCustomersInfo();
+        fitnessClub.isClosing();
+
+        fitnessClub.printCustomersInfo();
+
     }
 }
 
-/*не сделано:
-
-Абонемент не может быть зарегистрирован одновременно в нескольких зонах.
-(реализовать проверку перед добавлением в зону)
-
-Реализовать возможность выводить информацию в консоль каждый раз, когда клиент посещает фитнес клуб.
-Информация для вывода:
-Фамилия
-Имя
-Посещаемаю зона (бассейн/тренажерный зал/групповые занятия)
-Дата и время посещени
-* */
