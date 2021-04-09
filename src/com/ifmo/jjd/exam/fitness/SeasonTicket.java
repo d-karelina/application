@@ -30,6 +30,6 @@ public class SeasonTicket {
     }
 
     enum Type{
-        РАЗОВЫЙ, ДНЕВНОЙ, ПОЛНЫЙ
+        ONE_OFF, DAY, FULL
     }
 }

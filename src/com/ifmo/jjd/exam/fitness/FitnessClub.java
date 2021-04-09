@@ -1,6 +1,5 @@
 package com.ifmo.jjd.exam.fitness;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import static com.ifmo.jjd.exam.fitness.Settings.*;
@@ -10,9 +9,9 @@ public class FitnessClub {
 
     //конструктор фитнес-клуба, создает зоны
     public FitnessClub() {
-        this.zones[0] = new FitnessZone(FitnessZone.Name.ТРЕНАЖЕРНЫЙ_ЗАЛ);
-        this.zones[1] = new FitnessZone(FitnessZone.Name.БАССЕЙН);
-        this.zones[2] = new FitnessZone(FitnessZone.Name.ГРУППОВЫЕ_ЗАНЯТИЯ);
+        this.zones[0] = new FitnessZone(FitnessZone.Name.GYM);
+        this.zones[1] = new FitnessZone(FitnessZone.Name.PULL);
+        this.zones[2] = new FitnessZone(FitnessZone.Name.GROUP_TRAININGS);
     }
 
     //метод посещения фитнес-клуба. посетитель сообщает зону и предъявляет абонемент

@@ -10,26 +10,26 @@ public class Validations {
     //метод проверяет валидность абонимента в конетной зоне с учетом времени.
     public static boolean checkTicketInTheZoneNow (SeasonTicket ticket, FitnessZone zone){
         switch (zone.name){
-            case БАССЕЙН:
-                if (ticket.type == SeasonTicket.Type.ПОЛНЫЙ || ticket.type == SeasonTicket.Type.РАЗОВЫЙ) {
+            case PULL:
+                if (ticket.type == SeasonTicket.Type.FULL || ticket.type == SeasonTicket.Type.ONE_OFF) {
                     System.out.println("Абонемент включает Бассейн");
                     return true ;
                 }
                 System.out.println("Абонемент не включает бассейн");
                 return false ;
 
-            case ТРЕНАЖЕРНЫЙ_ЗАЛ:
-                if (ticket.type == SeasonTicket.Type.ПОЛНЫЙ || ticket.type == SeasonTicket.Type.РАЗОВЫЙ
-                        || (ticket.type == SeasonTicket.Type.ДНЕВНОЙ && LocalTime.now().isBefore(TIME_VALID_TILL))) {
+            case GYM:
+                if (ticket.type == SeasonTicket.Type.FULL || ticket.type == SeasonTicket.Type.ONE_OFF
+                        || (ticket.type == SeasonTicket.Type.DAY && LocalTime.now().isBefore(TIME_VALID_TILL))) {
                     System.out.println("Абонемент включает Тренажерный зал");
                     return true ;
                 }
                 System.out.println("Ваш абонемент действителен на вход до 15:30");
                 return false ;
 
-            case ГРУППОВЫЕ_ЗАНЯТИЯ:
-                if (ticket.type == SeasonTicket.Type.ПОЛНЫЙ
-                        || (ticket.type == SeasonTicket.Type.ДНЕВНОЙ && LocalTime.now().isBefore(TIME_VALID_TILL)) ) {
+            case GROUP_TRAININGS:
+                if (ticket.type == SeasonTicket.Type.FULL
+                        || (ticket.type == SeasonTicket.Type.DAY && LocalTime.now().isBefore(TIME_VALID_TILL)) ) {
                     System.out.println("Абонемент включает Групповые занятия");
                     return true ;
                 }

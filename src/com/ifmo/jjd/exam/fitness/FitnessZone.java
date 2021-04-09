@@ -62,6 +62,6 @@ public class FitnessZone {
     }
 
     enum Name{
-        БАССЕЙН, ТРЕНАЖЕРНЫЙ_ЗАЛ, ГРУППОВЫЕ_ЗАНЯТИЯ
+        PULL, GYM, GROUP_TRAININGS
     }
 }
