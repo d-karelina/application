@@ -1,5 +1,6 @@
 package com.ifmo.jjd.hw13.emploee;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
@@ -31,9 +32,13 @@ public class EmployeeTask {
         employeeTreeSet2.addAll(employees) ;
         employeeTreeSet3.addAll(employees) ;
 
-        System.out.println(employeeTreeSet) ;
-        System.out.println(employeeTreeSet2) ;
-        System.out.println(employeeTreeSet3) ;
+        employees.sort(comparator);
+        employees.forEach(System.out::println);
+
+        //System.out.println(employeeTreeSet) ;
+        // employeeTreeSet2.forEach(System.out::println);
+        //System.out.println(employeeTreeSet2) ;
+        //System.out.println(employeeTreeSet3) ;
 
     }
 }

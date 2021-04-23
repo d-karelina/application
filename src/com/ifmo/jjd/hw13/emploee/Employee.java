@@ -5,6 +5,7 @@ import com.ifmo.jjd.hw13.emploee.utils.Randoms;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 public class Employee {
     private String name;
@@ -33,6 +34,19 @@ public class Employee {
 
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return salary == employee.salary && age == employee.age && Objects.equals(name, employee.name) && Objects.equals(company, employee.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, company, salary, age);
     }
 
     // TODO: конструктор, геттеры и сеттеры
