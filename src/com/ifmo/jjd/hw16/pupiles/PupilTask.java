@@ -29,25 +29,31 @@ public class PupilTask {
         double avgAge = Arrays.stream(pupils)
                 .collect(Collectors.averagingDouble(Pupil::getAge)) ;
 
+        double avgAge2 = Arrays.stream(pupils)
+                .mapToInt(Pupil::getAge)
+                .average().getAsDouble() ;
+
         // 3. Найти самого младшего ученика
 
         System.out.println(avgAge);
 
-        Optional<Pupil> youngest = Arrays.stream(pupils)
-                .min(Comparator.comparing(Pupil::getAge));
+        Pupil youngest = Arrays.stream(pupils)
+                .min(Comparator.comparing(Pupil::getAge))
+                .orElseGet(null);
 
-        System.out.println(youngest);
+        System.out.println("младший: " + youngest);
 
         // 4. Найти самого взрослого ученика
 
-        Optional<Pupil> oldest = Arrays.stream(pupils)
-                .max(Comparator.comparing(Pupil::getAge));
+        Pupil oldest = Arrays.stream(pupils)
+                .max(Comparator.comparing(Pupil::getAge))
+                .orElseGet(null);
 
-        System.out.println(oldest);
+        System.out.println("старший: " + oldest);
 
         // 5. Собрать учеников в группы по году рождения
 
-        Map<Integer, ArrayList> groupByYear = Arrays.stream(pupils)
+        Map<Integer, ArrayList<Pupil>> groupByYear = Arrays.stream(pupils)
                 .collect(Collectors.groupingBy(date -> date.getBirth().getYear(),
                         Collectors.toCollection(ArrayList::new))) ;
 
@@ -70,7 +76,7 @@ public class PupilTask {
 
         List<Pupil> sortByGenderDateName = Arrays.stream(pupils)
                 .sorted(Comparator.comparing(Pupil::getGender).thenComparing(Pupil::getBirth)
-                        .thenComparing((o1, o2) -> o2.getName().compareTo(o2.getName())))
+                        .thenComparing((o1, o2) -> o2.getName().compareTo(o1.getName())))
                 .collect(Collectors.toList());
 
         System.out.println(sortByGenderDateName);

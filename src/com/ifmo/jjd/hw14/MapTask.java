@@ -103,17 +103,6 @@ public class MapTask {
 
         MapTask.customersIn(customerMap, 18, 60) ;
 
-        // TODO:: Задания по тексту (text). На каждый пункт - минимум один метод:
-        //  1. написать метод, принимающий на вход слово и возвращающий частоту
-        //  встречаемости данного слова в тексте
-        //  2. написать метод, который собирает все слова в группы
-        //  по количеству букв:
-        //  например, в одну группу попадут слова:
-        //  3 - [the, war, jar, get, met...],
-        //  в другую 2 - [on, up, no, of...]
-        //  результат сохранить в Map<Integer, ArrayList>
-        //  3. написать метод, который выводит в консоль топ 10 самых частых слов
-        //  4. вывести частоту встречаемости букв английского алфавита в данном тексте. Вывести в процентах для каждой буквы
 
         // в тексте содержатся только буквы и пробельные символы
         String text = "It is a uncover long established fact that a reader will be distracted uncover by the readable content of a page " +
@@ -123,6 +112,131 @@ public class MapTask {
                 "uncover many web sites still uncover in their infancy Various versions uncover have evolved over the years uncover sometimes by accident" +
                 " sometimes on purpose injected humour and the like";
 
+        System.out.println(wordFrequency("it", text)) ;
+        groupingByLetters(text);
+        topTenWords(text);
+        lettersFrequency(text);
+    }
+    // TODO:: Задания по тексту (text). На каждый пункт - минимум один метод:
+    //  4. вывести частоту встречаемости букв английского алфавита в данном тексте. Вывести в процентах для каждой буквы
+    public static void lettersFrequency (String text) {
+        text = text.toLowerCase().replaceAll(" ", "").replaceAll("-", "");
+        char[] characters = new char[text.length()] ;
+        int oneHundredPercent = text.length();
+
+        for (int i = 0; i < characters.length; i++) {
+            characters[i] = text.charAt(i) ;
+        }
+
+        HashMap<Character, Double> charMap = new HashMap<>();
+
+        for (char chr: characters) {
+            if (charMap.containsKey(chr)) {
+                for (Map.Entry<Character, Double> entry : charMap.entrySet()) {
+                    if (entry.getKey().equals(chr))
+                        entry.setValue(entry.getValue() + 1);
+                }
+            } else charMap.put(chr, (double)1) ;
+        }
+
+        for (Map.Entry<Character, Double> entry : charMap.entrySet())  {
+            entry.setValue(entry.getValue()*100/oneHundredPercent);
+        }
+
+        System.out.println(charMap);
     }
 
+    //  3. написать метод, который выводит в консоль топ 10 самых частых слов
+    public static void topTenWords (String text) {
+        String[] words = text.toLowerCase().split(" ");
+        HashMap<String, Integer> uniqWords = new HashMap<>() ;
+
+        for (String word: words) {
+            if (uniqWords.containsKey(word)) {
+                for (Map.Entry<String, Integer> entry: uniqWords.entrySet() ) {
+                    if (entry.getKey().equals(word))
+                        entry.setValue(entry.getValue() + 1) ;
+                }
+            } else uniqWords.put(word, 1) ;
+        }
+
+        System.out.println(uniqWords);
+
+        String[] topTen = new String[10] ;
+        int max ;
+        for (int i = 0; i < topTen.length; i++) {
+            max = 0 ;
+            for (Map.Entry<String, Integer> entry : uniqWords.entrySet()) {
+                if (max < entry.getValue()) max = entry.getValue() ;
+            }
+            for (Map.Entry<String, Integer> entry : uniqWords.entrySet()) {
+                if (max == entry.getValue()) {
+                    topTen[i] = entry.getKey();
+                    entry.setValue(0) ;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(topTen));
+
+        /*Comparator<Map.Entry<String, Integer>> comparator1 = new Comparator<>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return Integer.compare(o1.getValue(), o2.getValue());
+            }
+        };
+        TreeMap<String, Integer> sortedUniqueWords = new TreeMap(comparator1);
+        sortedUniqueWords.putAll(uniqWords);*/
+
+        //System.out.println(sortedUniqueWords);
+    }
+
+    //  2. написать метод, который собирает все слова в группы
+    //  по количеству букв:
+    //  например, в одну группу попадут слова:
+    //  3 - [the, war, jar, get, met...],
+    //  в другую 2 - [on, up, no, of...]
+    //  результат сохранить в Map<Integer, ArrayList>
+
+
+    public static void groupingByLetters (String text) {
+        Map<Integer, ArrayList<String>> groupsOfWords = new HashMap<>();
+
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(text.split(" "))) ;
+
+
+        //перебираем все слова
+        for (String word: words) {
+            //если слово с такой длинной уже есть в мапе
+            if (groupsOfWords.containsKey(word.length())) {
+                //перебираем записи мапы
+                for (Map.Entry <Integer, ArrayList<String>> entry : groupsOfWords.entrySet())
+                    //находим конкретную запись, где ключ - длина слова
+                    if (entry.getKey().equals(word.length()))
+                        //в имеющееся значение добавляем слово
+                        entry.getValue().add(word);
+            } else {
+                //создаем новую запись в мапе
+                groupsOfWords.put(word.length(), new ArrayList<String>(Collections.singleton(word)));
+            }
+        }
+
+        System.out.println(groupsOfWords);
+    }
+
+    //  1. написать метод, принимающий на вход слово и возвращающий частоту
+    //  встречаемости данного слова в тексте
+    public static int wordFrequency (String word, String text) {
+        int freq = 0;
+
+        String[] words = text.toLowerCase().split(" ");
+
+        for (String wordOfString : words) {
+            if (wordOfString.equals(word)) freq++;
+        }
+        return freq ;
+    }
 }
+
+

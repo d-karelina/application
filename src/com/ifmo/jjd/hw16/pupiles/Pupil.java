@@ -55,10 +55,10 @@ public class Pupil {
     //метод считает возраст
     public int getAge(){
         int age = LocalDate.now().getYear() - birth.getYear() ;
-        if (LocalDate.now().getMonthValue() > birth.getMonthValue()
+        if (LocalDate.now().getMonthValue() < birth.getMonthValue()
                 || (LocalDate.now().getMonthValue() == birth.getMonthValue()
-                && LocalDate.now().getDayOfMonth() >= birth.getDayOfMonth()))
-            age ++ ;
+                && LocalDate.now().getDayOfMonth() < birth.getDayOfMonth()))
+            age -- ;
         return age ;
     }
 

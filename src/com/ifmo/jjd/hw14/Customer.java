@@ -4,6 +4,7 @@ import com.ifmo.jjd.hw13.message.Message;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -45,8 +46,6 @@ public class Customer {
     public static void loginList (Map<String, String> map, String city) {
 
     }
-
-
 
     // TODO: переопределить все необходимые методы
 }
