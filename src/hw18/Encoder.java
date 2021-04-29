@@ -20,7 +20,7 @@ public class Encoder extends FilterOutputStream {
         super(out);
     }
 
-    public void encode(String text, String password, OutputStream out) {
+    public void encode(String text, String password, OutputStream out) throws IOException {
         if (text == null || password == null) throw new NullPointerException("строка == null") ;
 
         byte[] textBytes = text.getBytes();
@@ -34,16 +34,6 @@ public class Encoder extends FilterOutputStream {
             if (countByte == bytePassword.length) countByte = 0 ;
         }
 
-        try {
-            out.write(encodedBytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        out.write(encodedBytes);
     }
 }
