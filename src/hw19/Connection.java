@@ -19,7 +19,7 @@ public class Connection implements AutoCloseable{
     }
 
     public void sendMessage (SimpleMessage message) throws IOException {
-        message.setDateTime();
+        if (message.getDateTime() == null) message.setDateTime();
         output.writeObject(message);
         output.flush(); //байты из программы насильно передаются в поток - при работе с сетью. при работе с файлами вызывается внутри методов
     }
