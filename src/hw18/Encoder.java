@@ -3,7 +3,8 @@ package hw18;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
+
+//вынести в свойство пароль
 
 public class Encoder extends FilterOutputStream {
     protected byte code[];
