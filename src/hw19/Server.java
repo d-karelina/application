@@ -1,11 +1,18 @@
 package hw19;
 
+import com.ifmo.jjd.exam.fitness.SeasonTicket;
+
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Server {
     private int port;
@@ -17,11 +24,12 @@ public class Server {
     }
 
     public void start () {
+        Set<InetAddress> clients = new HashSet<>() ;
         try (ServerSocket serverSocket = new ServerSocket(port)) { //Ожидание клиентских подключений
             System.out.println("сервер запущен") ;
             while (true) {
                 Socket newClient = serverSocket.accept() ; //момент установки соединения с клиентом
-                countConnection ++ ;
+                clients.add(newClient.getInetAddress()) ;
                 connection = new Connection(newClient) ;
                 SimpleMessage message = connection.readMessage() ;
                 System.out.println(message);
@@ -34,7 +42,7 @@ public class Server {
                                 "    /exit - пользователь хочет выйти из программы (завершение программы)")) ;
                         break ;
                     case "/count":
-                        connection.sendMessage(SimpleMessage.getMessage("сервер", String.valueOf(countConnection))) ;
+                        connection.sendMessage(SimpleMessage.getMessage("сервер", String.valueOf(clients.size()))) ;
                         break ;
                     case "/ping" :
                         connection.sendMessage(SimpleMessage.getMessage("сервер",
