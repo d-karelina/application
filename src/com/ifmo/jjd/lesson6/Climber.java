@@ -1,5 +1,6 @@
 package com.ifmo.jjd.lesson6;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Climber {
@@ -49,6 +50,32 @@ public class Climber {
 
     public UUID getUuid() {
         return uuid;
+    }
+
+    @Override
+    protected Climber clone()  {
+        Climber copy = new Climber() ;
+
+        copy.uuid = this.uuid ;
+        copy.email = this.email ;
+        copy.age = this.age ;
+        copy.fullName = this.fullName ;
+
+        return copy;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Climber)) return false;
+        Climber climber = (Climber) o;
+        return age == climber.age && fullName.equals(climber.fullName) && email.equals(climber.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, age, email, uuid);
     }
 
     @Override

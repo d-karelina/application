@@ -1,6 +1,11 @@
 package com.ifmo.jjd.lesson6;
 
-public class Mountain {
+import com.ifmo.jjd.lesson9.Figure;
+import com.ifmo.jjd.lesson9.Point;
+
+import java.util.Objects;
+
+public class Mountain implements Cloneable{
     private String name ;
     private int height ;
 
@@ -33,6 +38,29 @@ public class Mountain {
         if (height < 100)
             throw new IllegalArgumentException("height меньше 100") ;
         this.height = height;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mountain)) return false;
+        Mountain mountain = (Mountain) o;
+        return height == mountain.height && name.equals(mountain.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, height);
+    }
+
+    @Override
+    public Mountain clone () {
+        try {
+            return (Mountain) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+
     }
 
     @Override
