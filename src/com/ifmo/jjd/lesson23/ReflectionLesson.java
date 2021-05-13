@@ -92,6 +92,14 @@ public class ReflectionLesson {
     //написать рефлексивный статический метод toString(Object o)
     //obj: int, boolean. String, User, String[]
     public static void toString (Object o) {
+        Field[] declaredFields = o.getClass().getDeclaredFields() ;
+        for (int i = 0; i < declaredFields.length; i++) {
+            if (declaredFields[i].getType().toString().equals("int")
+                    || declaredFields[i].getType().toString().equals("boolean")
+                    || declaredFields[i].getType().toString().equals("String")) {
+                System.out.println(declaredFields[i]) ;
+            } else toString(declaredFields[i]);
+        }
         //метод проходит по всем свойствам объекта и вывести в консоль.
     }
 
